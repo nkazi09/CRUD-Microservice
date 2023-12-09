@@ -16,25 +16,3 @@ The service is deployed across multiple regions so that clients are closer to th
 
 ![image](https://github.com/nkazi09/CRUD-Microservice/assets/70826183/814d05bb-760a-4039-8ebf-e5052553d962)
 
-Components:
-Authentication/Authorization:
-Manages user authentication and authorization using Azure AD or JWT.
-
-Load Balancer:
-Distributes incoming requests across multiple instances of the microservice for scalability.
-Microservice Instances:
-Hosts the CRUD operations for Employee entities.
-Implements business logic, validation, and interacts with the MongoDB database and catches results for frequent access.
-
-MongoDB Database:
-Stores Employee Entities.
-Single write region and multiple read regions for read-heavy traffic, to keep latency numbers low.
-Utilizes sharding and indexing for efficient retrieval and updates.
-
-Cache:
-Redis Cache stores frequently accessed data to improve read performance and reduce latency.
-We could alternatively use a Least Recently Used (LRU) cache which effectively removes items from the cache that haven’t been accessed in a long time.
-Monitoring and Logging:
-Monitors service health, performance metrics, and logs for debugging.
-Integrates with external monitoring tools.
-
