@@ -26,23 +26,22 @@ import com.crudemployee.employee.service.EmployeeService;
 
 public class EmployeeController {
 
-	  /*
-	   * This is the employeeService, is an object responsible to store all fields required in response.
-	   */
-	
+	/*
+	* This is the employeeService, is an object responsible to store all fields required in response.
+	*/
+
 	@Autowired
 	private EmployeeService employeeService;
 
 	// Accepts employee as parameter and creates an employee 
 	// throws 500 error if failed to create an employee
-    @PostMapping("/employee")
-    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee, Principal principal) {
+	@PostMapping("/employee")
+	public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee, Principal principal) {
         ResponseEntity<Employee> authCheckResult = checkAuthAndAuthz(principal, "CREATE_EMPLOYEE");
         if (authCheckResult != null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(authCheckResult.getBody());
         }
-
-        
+     
         try {
         	
             Employee createEmployee = employeeService.createEmployee(employee); 
@@ -60,11 +59,11 @@ public class EmployeeController {
     @GetMapping("/employee{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable Long id, Principal principal) {
     	
-        ResponseEntity<Employee> authCheckResult = checkAuthAndAuthz(principal, "READ_EMPLOYEE");
-        if (authCheckResult != null) {
-            return authCheckResult;
-        }
-        
+	ResponseEntity<Employee> authCheckResult = checkAuthAndAuthz(principal, "READ_EMPLOYEE");
+	if (authCheckResult != null) {
+	    return authCheckResult;
+	}
+
         if (id == null) {
         	throw new IllegalArgumentException("Please provide an employee id to retrieve the employee.");
         }
