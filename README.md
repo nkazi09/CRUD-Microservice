@@ -38,15 +38,3 @@ Monitoring and Logging:
 Monitors service health, performance metrics, and logs for debugging.
 Integrates with external monitoring tools.
 
-3. API Design
-Endpoints:
-Create Employee:
-POST /api/employees
-Get Employee by ID:
-GET /api/employees/{id}
-Get All Employees:
-GET /api/employees
-Update Employee:
-PUT /api/employees/{id}
-Delete Employee:
-DELETE /api/employees/{id}
