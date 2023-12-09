@@ -13,43 +13,34 @@ import jakarta.persistence.*;
 @Table(name = "employee")
 public class Employee {
 
-    @Id
-    private Long id;
-    private String name;
-    
-   
+	@Id
+	private Long id;
+	private String name;
+	
 
-    //Constructor, getter, and Setters
-    public Employee() {}
-    
-    
-    public Employee(final Long id, final String name) {
-    	this.id = id;
-    	this.name = name;
-    
-    }
-
-
+	//Constructor, getter, and Setters
+	public Employee() {}
+	
+	
+	public Employee(final Long id, final String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
 	public Long getId() {
 		return id;
-	}
-
-
+	}	
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
+		
 	public String getName() {
 		return name;
-	}
-
-
+	}	
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
-   
-    
 }
 
